@@ -1,35 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appointment Booking</title>
+    <title>Prenotazione Appuntamenti</title>
     <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="text-center">Prenotazione Appuntamenti</h1>
-        <form id="bookingForm">
-            <div class="mb-3">
-                <label for="name" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="name" required>
+        <div class="card shadow-lg">
+            <div class="card-header bg-primary text-white text-center">
+                <h1>Prenotazione Appuntamenti</h1>
             </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" required>
+            <div class="card-body">
+                <form id="bookingForm">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="date" class="form-label">Data</label>
+                        <input type="date" class="form-control" id="date" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="time" class="form-label">Ora</label>
+                        <input type="time" class="form-control" id="time" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Prenota</button>
+                </form>
+                <div id="confirmationMessage" class="mt-3"></div>
             </div>
-            <div class="mb-3">
-                <label for="date" class="form-label">Data</label>
-                <input type="date" class="form-control" id="date" required>
-            </div>
-            <div class="mb-3">
-                <label for="time" class="form-label">Ora</label>
-                <input type="time" class="form-control" id="time" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Prenota</button>
-        </form>
-        <div id="confirmationMessage" class="mt-3"></div>
+        </div>
     </div>
     <script src="libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="js/scripts.js"></script>
