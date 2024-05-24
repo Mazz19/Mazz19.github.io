@@ -4,41 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prenotazione Appuntamenti</title>
-    <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="container mt-5 d-flex justify-content-center">
-        <div class="card shadow-lg p-4" style="width: 100%; max-width: 600px;">
-            <div class="card-header bg-white border-0 text-center mb-4">
-                <h1 class="h4">Prenotazione Appuntamenti</h1>
-            </div>
-            <div class="card-body">
-                <form id="bookingForm">
-                    <div class="mb-4">
-                        <label for="name" class="form-label">Nome</label>
-                        <input type="text" class="form-control" id="name" required>
+    <div class="container d-flex vh-100">
+        <div class="row justify-content-center align-items-center w-100">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="card shadow-lg p-4">
+                    <div class="card-header bg-white border-0 text-center mb-4">
+                        <h1 class="h4">Prenotazione Appuntamenti</h1>
                     </div>
-                    <div class="mb-4">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" required>
+                    <div class="card-body">
+                        <form id="bookingForm">
+                            <div class="mb-4">
+                                <label for="name" class="form-label">Nome</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="date" class="form-label">Data</label>
+                                <input type="date" class="form-control" id="date" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="time" class="form-label">Ora</label>
+                                <input type="time" class="form-control" id="time" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Prenota</button>
+                        </form>
+                        <div id="confirmationMessage" class="mt-4"></div>
                     </div>
-                    <div class="mb-4">
-                        <label for="date" class="form-label">Data</label>
-                        <input type="date" class="form-control" id="date" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="time" class="form-label">Ora</label>
-                        <input type="time" class="form-control" id="time" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary w-100">Prenota</button>
-                </form>
-                <div id="confirmationMessage" class="mt-4"></div>
+                </div>
             </div>
         </div>
     </div>
-    <script src="libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/scripts.js"></script>
 </body>
 </html>
