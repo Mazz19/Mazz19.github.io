@@ -4,6 +4,10 @@ body {
     margin: 0;
 }
 
+.navbar {
+    margin-bottom: 2rem;
+}
+
 .card {
     border-radius: 12px;
     border: none;
@@ -58,3 +62,6 @@ body {
     max-width: calc(33.333% - 1rem);
 }
 
+#appointmentsSection {
+    padding-top: 5rem;
+}
