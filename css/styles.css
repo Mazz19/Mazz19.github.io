@@ -39,11 +39,21 @@ body {
     background-color: #357ae8;
 }
 
-#confirmationMessage {
-    display: none;
+#confirmationMessage, #errorMessage {
     border-radius: 5px;
 }
 
-.alert-success {
+#appointments {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.appointment-card {
+    background-color: #ffffff;
     border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    flex: 1 1 calc(33.333% - 1rem);
+    max-width: calc(33.333% - 1rem);
 }
