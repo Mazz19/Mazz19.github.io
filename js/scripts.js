@@ -5,7 +5,7 @@ document.getElementById('bookingForm').addEventListener('submit', function(event
     const email = document.getElementById('email').value;
     const date = document.getElementById('date').value;
     const time = document.getElementById('time').value;
-    
+
     const errorMessageDiv = document.getElementById('errorMessage');
     errorMessageDiv.innerHTML = '';  // Clear previous error message
 
