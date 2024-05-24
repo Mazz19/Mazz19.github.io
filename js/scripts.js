@@ -12,6 +12,11 @@ document.addEventListener('DOMContentLoaded', function() {
             const errorMessageDiv = document.getElementById('errorMessage');
             errorMessageDiv.innerHTML = '';  // Clear previous error message
 
+            if (!time) {
+                errorMessageDiv.innerHTML = 'Per favore, seleziona un\'ora.';
+                return;
+            }
+
             // Check if the appointment slot is already taken
             const existingAppointments = JSON.parse(localStorage.getItem('appointments')) || [];
             const isSlotTaken = existingAppointments.some(app => app.date === date && app.time === time);
