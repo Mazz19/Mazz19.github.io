@@ -19,3 +19,14 @@ class AppointmentForm(forms.ModelForm):
     class Meta:
         model = Appointment
         fields = ['name', 'email', 'phone', 'date', 'time']
+
+    def clean(self):
+        cleaned_data = super().clean()
+        date = cleaned_data.get("date")
+        time = cleaned_data.get("time")
+
+        if date and time:
+            if Appointment.objects.filter(date=date, time=time).exists():
+                raise forms.ValidationError("An appointment at this date and time already exists.")
+        
+        return cleaned_data
