@@ -40,3 +40,6 @@ def appointments_list(request):
 
 def success(request):
     return render(request, 'bookings/success.html')
+
+def index(request):
+    return render(request, 'bookings/index.html')
