@@ -1,5 +1,7 @@
 from django import forms
 from .models import Appointment
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 
 class AppointmentForm(forms.ModelForm):
     TIME_CHOICES = [
@@ -30,3 +32,10 @@ class AppointmentForm(forms.ModelForm):
                 raise forms.ValidationError("An appointment at this date and time already exists.")
         
         return cleaned_data
+
+class UserRegisterForm(UserCreationForm):
+    email = forms.EmailField()
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password1', 'password2']

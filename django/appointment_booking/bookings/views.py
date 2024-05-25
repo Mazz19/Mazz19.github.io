@@ -21,6 +21,22 @@ def register(request):
     return render(request, 'bookings/register.html', {'form': form})
 
 @login_required
+def book_appointment(request):
+    if request.method == 'POST':
+        form = AppointmentForm(request.POST)
+        if form.is_valid():
+            appointment = form.save(commit=False)
+            appointment.user = request.user
+            appointment.save()
+            return redirect('success')
+    else:
+        form = AppointmentForm()
+    return render(request, 'bookings/book_appointment.html', {'form': form})
+
+@login_required
 def appointments_list(request):
     appointments = Appointment.objects.filter(user=request.user)
     return render(request, 'bookings/appointments_list.html', {'appointments': appointments})
+
+def success(request):
+    return render(request, 'bookings/success.html')

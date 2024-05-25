@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Appointments</title>
+</head>
+<body>
+    <h1>Your Appointments</h1>
+    <ul>
+        {% for appointment in appointments %}
+            <li>{{ appointment.date }} at {{ appointment.time }} - {{ appointment.name }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'logout' %}">Logout</a>
+</body>
+</html>
