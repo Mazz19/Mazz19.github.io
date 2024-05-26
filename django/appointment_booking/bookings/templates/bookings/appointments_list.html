@@ -1,15 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Your Appointments</title>
-</head>
-<body>
-    <h1>Your Appointments</h1>
-    <ul>
+{% extends 'bookings/base.html' %}
+
+{% block title %}Your Appointments{% endblock %}
+
+{% block content %}
+    <h2>Your Appointments</h2>
+    <ul class="list-group">
         {% for appointment in appointments %}
-            <li>{{ appointment.date }} at {{ appointment.time }} - {{ appointment.name }}</li>
+            <li class="list-group-item">
+                <strong>Date:</strong> {{ appointment.date }} <br>
+                <strong>Time:</strong> {{ appointment.time }} <br>
+                <strong>Name:</strong> {{ appointment.name }}
+            </li>
         {% endfor %}
     </ul>
-    <a href="{% url 'logout' %}">Logout</a>
-</body>
-</html>
+{% endblock %}

@@ -1,15 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Home</title>
-</head>
-<body>
-    <h1>Welcome to the Appointment Booking System</h1>
-    <ul>
-        <li><a href="{% url 'register' %}">Register</a></li>
-        <li><a href="{% url 'login' %}">Login</a></li>
-        <li><a href="{% url 'book_appointment' %}">Book an Appointment</a></li>
-        <li><a href="{% url 'appointments_list' %}">View Your Appointments</a></li>
-    </ul>
-</body>
-</html>
+{% extends 'bookings/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Welcome to the Appointment Booking System</h1>
+        <p class="lead">Easily book and manage your appointments.</p>
+        <hr class="my-4">
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{% url 'register' %}" role="button">Register</a>
+            <a class="btn btn-success btn-lg" href="{% url 'login' %}" role="button">Login</a>
+            <a class="btn btn-info btn-lg" href="{% url 'book_appointment' %}" role="button">Book an Appointment</a>
+            <a class="btn btn-warning btn-lg" href="{% url 'appointments_list' %}" role="button">View Your Appointments</a>
+        </p>
+    </div>
+{% endblock %}
