@@ -1,16 +1,25 @@
 {% extends 'bookings/base.html' %}
 
-{% block title %}Your Appointments{% endblock %}
+{% block title %}My Appointments{% endblock %}
 
 {% block content %}
-    <h2>Your Appointments</h2>
-    <ul class="list-group">
-        {% for appointment in appointments %}
-            <li class="list-group-item">
-                <strong>Date:</strong> {{ appointment.date }} <br>
-                <strong>Time:</strong> {{ appointment.time }} <br>
-                <strong>Name:</strong> {{ appointment.name }}
-            </li>
-        {% endfor %}
-    </ul>
+    <div id="calendar"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                events: '/appointments/',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                }
+            });
+
+            calendar.render();
+        });
+    </script>
 {% endblock %}

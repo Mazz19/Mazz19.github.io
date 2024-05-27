@@ -1,9 +1,21 @@
 from django.shortcuts import render, redirect
+from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import login, authenticate
-from django.contrib import messages
-from .forms import UserRegisterForm, AppointmentForm
 from .models import Appointment
+from .forms import UserRegisterForm, AppointmentForm
+
+@login_required
+def appointments_list(request):
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        appointments = Appointment.objects.filter(user=request.user)
+        appointments_data = [{
+            'title': appointment.description,
+            'start': appointment.date.strftime("%Y-%m-%dT%H:%M:%S"),
+            'end': appointment.date.strftime("%Y-%m-%dT%H:%M:%S"),
+        } for appointment in appointments]
+        return JsonResponse(appointments_data, safe=False)
+    else:
+        return render(request, 'bookings/appointments_list.html')
 
 def register(request):
     if request.method == 'POST':
@@ -32,11 +44,6 @@ def book_appointment(request):
     else:
         form = AppointmentForm()
     return render(request, 'bookings/book_appointment.html', {'form': form})
-
-@login_required
-def appointments_list(request):
-    appointments = Appointment.objects.filter(user=request.user)
-    return render(request, 'bookings/appointments_list.html', {'appointments': appointments})
 
 def success(request):
     return render(request, 'bookings/success.html')
